@@ -1,0 +1,19 @@
+public class basse{
+    public show(){
+        System.out.println("This is the base class.");
+    }
+}
+public class Derived1 extends basse{
+    @Override
+    public void show(){
+        System.out.println("This is the derived class.");
+    }
+}
+public class Demo123{
+    public static void main(String [] args)
+{
+    Derived1 derived1 = new Derived1();
+    derived1.show();
+
+}
+}

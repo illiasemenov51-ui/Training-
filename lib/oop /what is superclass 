@@ -1,0 +1,249 @@
+// A superclass (also called a parent class or base class) is a class whose properties (data) and methods (functions) are inherited by another class, called a subclass or child class.
+
+// Example
+
+// Imagine you're modeling vehicles.
+
+// // Superclass
+// class Vehicle {
+//     void start() {
+//         System.out.println("Vehicle starts");
+//     }
+// }
+
+// // Subclass
+// class Car extends Vehicle {
+//     void drive() {
+//         System.out.println("Car is driving");
+//     }
+// }
+
+// public class Main {
+//     public static void main(String[] args) {
+//         Car car = new Car();
+
+//         car.start();  // Inherited from Vehicle
+//         car.drive();  // Defined in Car
+//     }
+// }
+
+// Output:
+
+// Vehicle starts
+// Car is driving
+// How it works
+// Superclass (Vehicle) contains common features shared by all vehicles.
+// Subclass (Car) inherits those features and can also have its own unique features.
+// Real-life analogy
+// Superclass: Animal
+// Can eat
+// Can sleep
+// Subclass: Dog
+// Can eat (inherited)
+// Can sleep (inherited)
+// Can bark (its own behavior)
+// Why use a superclass?
+// Avoids repeating common code.
+// Makes programs easier to maintain.
+// Supports inheritance, one of the four main principles of object-oriented programming (OOP).
+
+// In short:
+
+// Superclass = Parent class
+// Subclass = Child class
+// The child class inherits the fields and methods of the parent class.
+// сегодня 9:59
+// and when using normal class an dsuper class 
+
+// A superclass is just a normal class that another class inherits from. The difference is in how it is used, not in how it is declared.
+
+// When to use a normal class (no inheritance)
+
+// Use a normal class when it represents a single object and you don't need to share its code with other classes.
+
+// class Book {
+//     String title;
+
+//     void read() {
+//         System.out.println("Reading " + title);
+//     }
+// }
+
+// If no other class extends Book, it's simply a normal class.
+
+// When to use a superclass
+
+// Use a superclass when multiple classes have common fields or methods.
+
+// ❌ Without a superclass:
+
+// class Dog {
+//     String name;
+
+//     void eat() {
+//         System.out.println("Eating");
+//     }
+// }
+
+// class Cat {
+//     String name;
+
+//     void eat() {
+//         System.out.println("Eating");
+//     }
+// }
+
+// Notice that name and eat() are duplicated.
+
+// ✅ With a superclass:
+
+// class Animal {
+//     String name;
+
+//     void eat() {
+//         System.out.println("Eating");
+//     }
+// }
+
+// class Dog extends Animal {
+//     void bark() {
+//         System.out.println("Woof!");
+//     }
+// }
+
+// class Cat extends Animal {
+//     void meow() {
+//         System.out.println("Meow!");
+//     }
+// }
+
+// Now both Dog and Cat inherit name and eat() from Animal.
+
+// How super works
+
+// If the superclass has a constructor, you can call it using super().
+
+// class Animal {
+//     String name;
+
+//     Animal(String name) {
+//         this.name = name;
+//     }
+// }
+
+// class Dog extends Animal {
+
+//     Dog(String name) {
+//         super(name); // Calls Animal(String name)
+//     }
+// }
+// Rule of thumb
+
+// Use a superclass when:
+
+// ✅ Several classes have the same fields or methods.
+// ✅ You want to avoid repeating code.
+// ✅ There is an "is-a" relationship.
+
+// Examples:
+
+// Dog is an Animal.
+// Car is a Vehicle.
+// Student is a Person.
+
+// Don't use a superclass when:
+
+// ❌ Classes are unrelated.
+// ❌ You only have one class.
+// ❌ You're forcing inheritance just to reuse a little code.
+
+// For example, a Car is not a Driver, so Car extends Driver would be incorrect.
+
+// Quick summary
+// Situation	Use
+// One independent class	Normal class
+// Several classes share common code	Superclass + subclasses
+// "Dog is an Animal"	Dog extends Animal
+// "Car has an Engine"	Don't use inheritance; use composition instead (Car contains an Engine)
+
+// A good question to ask yourself is: "Can I naturally say 'X is a Y'?" If the answer is yes, inheritance (a superclass) is often appropriate. If the answer is no, composition is usually the better design.
+
+// yes in super class we have one method common example eating and king method example cat dog animals types  
+
+// Exactly! You're understanding the idea. Here's a clearer example.
+
+// // Superclass
+// class Animal {
+
+//     void eat() {
+//         System.out.println("The animal is eating.");
+//     }
+// }
+
+// // Subclass
+// class Dog extends Animal {
+
+//     void bark() {
+//         System.out.println("Woof!");
+//     }
+// }
+
+// // Subclass
+// class Cat extends Animal {
+
+//     void meow() {
+//         System.out.println("Meow!");
+//     }
+// }
+
+// public class Main {
+//     public static void main(String[] args) {
+
+//         Dog dog = new Dog();
+//         Cat cat = new Cat();
+
+//         dog.eat();    // Inherited from Animal
+//         dog.bark();   // Dog's own method
+
+//         cat.eat();    // Inherited from Animal
+//         cat.meow();   // Cat's own method
+//     }
+// }
+// Output
+// The animal is eating.
+// Woof!
+// The animal is eating.
+// Meow!
+// Think of it like this
+//           Animal   ← Superclass
+//              |
+//      -----------------
+//      |               |
+//     Dog            Cat
+// Animal has the common behavior:
+// eat()
+// Dog inherits eat() and adds:
+// bark()
+// Cat inherits eat() and adds:
+// meow()
+
+// The superclass contains the features that all animals have in common, while each subclass contains its own unique behavior.
+
+// A simple rule to remember is:
+
+// Superclass = common things
+// Subclass = specific things
+
+// For example:
+
+// Animal
+// ✅ eat()
+// ✅ sleep()
+// Dog
+// ✅ bark()
+// Cat
+// ✅ meow()
+// Bird
+// ✅ fly()
+
+// This is one of the main purposes of inheritance in Java: write the common code once in the superclass and let all subclasses reuse it.
